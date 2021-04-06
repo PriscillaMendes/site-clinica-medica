@@ -7,7 +7,6 @@ export default class Header extends React.Component {
     render() {
         return (
             <div className="col-12 header-size">
-
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <a className="navbar-brand" href="#">
                         <img src={logo_img} className="col-4 " /></a>
