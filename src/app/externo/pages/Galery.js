@@ -1,12 +1,11 @@
 import React from 'react';
 
-import galery_img0 from '../../images/clinica/galery0.jpg';
-import galery_img1 from '../../images/clinica/galery1.jpeg';
-import galery_img2 from '../../images/clinica/galery2.gif';
-import galery_img3 from '../../images/clinica/galery3.jpg';
-import galery_img4 from '../../images/clinica/galery5.jpg';
-import back_img from '../../images/background-sulley.png';
-import '../../App.css';
+import galery_img0 from '../../../images/clinica/galery0.jpg';
+import galery_img1 from '../../../images/clinica/galery1.jpeg';
+import galery_img2 from '../../../images/clinica/galery2.gif';
+import galery_img3 from '../../../images/clinica/galery3.jpg';
+import galery_img4 from '../../../images/clinica/galery5.jpg';
+import back_img from '../../../images/background-sulley.png';
 export default class Galery extends React.Component {
 
 

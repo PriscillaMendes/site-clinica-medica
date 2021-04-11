@@ -1,7 +1,6 @@
 import React from 'react'
 
-import '../css/Header.css';
-import logo_img from '../images/clinica/logo2.png';
+import logo_img from '../../../images/clinica/logo2.png';
 
 export default class Header extends React.Component {
     render() {

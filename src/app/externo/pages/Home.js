@@ -1,8 +1,5 @@
 import React from 'react'
-import build_img from '../../images/clinica/faixada.jpg';
-import '../../css/Header.css';
-import '../../css/HomeCard.css';
-
+import build_img from '../../../images/clinica/faixada.jpg';
 
 export default class Home extends React.Component {
     render() {

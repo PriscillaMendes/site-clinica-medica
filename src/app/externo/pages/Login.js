@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
-import '../../css/Card.css';
-import userLogin from '../../images/user-mike-login.jpg';
+import userLogin from '../../../images/user-mike-login.jpg';
 
 
 const initialForm = {

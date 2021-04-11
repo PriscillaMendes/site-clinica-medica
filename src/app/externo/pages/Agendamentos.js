@@ -1,8 +1,7 @@
 import React from 'react'
-import '../../css/CardCadastro.css';
-import userLogin from '../../images/singup-icon-sulley.jpg';
+import userLogin from '../../../images/singup-icon-sulley.jpg';
 
-export default class Cadastrar extends React.Component {
+export default class Agendamentos extends React.Component {
     render() {
         return (
             <div className="mt-4">
@@ -26,10 +25,10 @@ export default class Cadastrar extends React.Component {
                             </form>
                             <form className="col-6">
 
-                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Rua" />
-                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Bairro" />
-                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Cidade" />
-                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Estado" />
+                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Especialidade" />
+                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Médico" />
+                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Data" />
+                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="Horário" />
 
                             </form>
                         </div>
