@@ -13,3 +13,17 @@ A parte da aplicação de acesso restrito deverá conter telas/páginas para:
 - [ ] Home funcionários
 - [ ] Cadastramento de funcionários da clínica;
 - [ ] Cadastramento de pacientes;
+
+===========================================
+
+Sem Integração
+- [x] Home
+- [x] Galeria
+- [x] Endereços
+- [x] Agendamento
+
+
+Integração
+- Login 
+
+Estilização
