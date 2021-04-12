@@ -5,14 +5,14 @@ export default function Home() {
   return (
     <div className="mt-5 p-3 backgroud-texture">
       <div className="row d-flex justify-content-center">
-        <div className="col-2" />
-        <div className="col-5 container">
-          <img src={buildImg} alt="" className="mt-3 border border-primary rounded h-75" />
+        {/* <div className="col-2" /> */}
+        <div className="col-8 container">
+          <img src={buildImg} alt="" className="mt-3 border border-primary rounded w-100" />
           <div className="card-body">
             <h6 className="card-title">A Clínica Monstro é especializada nos melhores tratamentos de todas as áreas para todos os tipos de monstros</h6>
           </div>
         </div>
-        <div className="col" />
+        {/* <div className="col" /> */}
       </div>
       <div className="row mt-5 align-self-center">
         <div className="col" />

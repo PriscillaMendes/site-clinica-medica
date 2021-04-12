@@ -1,5 +1,4 @@
 import * as React from 'react';
-import userLogin from '../../images/singup-icon-sulley.jpg';
 import FormContainer from '../common/components/FormContainer';
 
 const initialForm = {
@@ -81,7 +80,7 @@ function Form(props) {
   );
 }
 
-function Address() {
+function PatientSignup() {
   function handleSubmit(form) {
     const body = {
       cep: form.cep,
@@ -98,22 +97,12 @@ function Address() {
 
   return (
     <FormContainer
-      title="Cadastrar Endereço"
-      srcImg={userLogin}
+      title="Cadastrar Paciente"
+      srcImg=""
     >
       <Form onSubmit={(form) => handleSubmit(form)} />
     </FormContainer>
   );
 }
 
-export default Address;
-// <div className="mt-4">
-//   <div className="wrapper fadeInDown">
-//     <div id="formContent">
-//       <h2 className="active underlineHover">Cadastrar Endereço</h2>
-//       <div className="fadeIn first">
-//         <img className="user-logo-size" src={userLogin} id="icon" alt="User Icon" />
-//       </div>
-//     </div>
-//   </div>
-// </div>
+export default PatientSignup;

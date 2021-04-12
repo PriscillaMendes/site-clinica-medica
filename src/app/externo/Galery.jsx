@@ -20,19 +20,19 @@ function Galery() {
           <div id="carousel1" className="carousel slide " data-ride="carousel">
             <div className="carousel-inner ">
               <div className="carousel-item active ">
-                <img className="d-block w-100 border border-dark shadow" src={galeryImg2} style={{ height: '300px' }} alt="First slide" />
+                <img className="d-block w-100 border " src={galeryImg2} style={{ height: '300px' }} alt="First slide" />
               </div>
               <div className="carousel-item">
-                <img className="d-block w-100 border border-dark shadow" src={galeryImg1} style={{ height: '300px' }} alt="Second slide" />
+                <img className="d-block w-100 border " src={galeryImg1} style={{ height: '300px' }} alt="Second slide" />
               </div>
               <div className="carousel-item">
-                <img className="d-block w-100 border border-dark shadow" src={galeryImg0} style={{ height: '300px' }} alt="Third slide" />
+                <img className="d-block w-100 border " src={galeryImg0} style={{ height: '300px' }} alt="Third slide" />
               </div>
               <div className="carousel-item">
-                <img className="d-block w-100 border border-dark shadow" src={galeryImg3} style={{ height: '300px' }} alt="4 slide" />
+                <img className="d-block w-100 border " src={galeryImg3} style={{ height: '300px' }} alt="4 slide" />
               </div>
               <div className="carousel-item">
-                <img className="d-block w-100 border border-dark shadow" src={galeryImg4} style={{ height: '300px' }} alt="5 slide" />
+                <img className="d-block w-100 border " src={galeryImg4} style={{ height: '300px' }} alt="5 slide" />
               </div>
             </div>
             <a className="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">

@@ -1,8 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logoImg from '../../../images/clinica/logo2.png';
 
+const externalLinks = [
+  { title: 'Login', to: '/Login' },
+  { title: 'Galeria', to: '/galeria' },
+  { title: 'Endereços', to: '/endereco' },
+  { title: 'Agendamentos', to: '/agendamento' },
+];
+
+const internalLinks = [
+  { title: 'Consultas', to: '/auth/consulta' },
+  { title: 'Novo Funcionario', to: '/auth/cadastro-funcionario' },
+  { title: 'Novo Paciente', to: '/auth/cadastro-paciente' },
+];
+
+// { title: 'Listar meus Agendamentos', to: '/agendamento' },
+// { title: 'login', to: '/Login' },
+
 function Header() {
+  const navigate = useNavigate();
+  const auth = window.localStorage.getItem('token');
+
+  function handleLogout() {
+    window.localStorage.removeItem('token');
+    navigate('/login');
+  }
+
+  // @TODO Verificar se o usuário logado é um medico
+  const isDoctor = true;
+  const links = auth ? internalLinks : externalLinks;
+
   return (
     <div className="col-12 header-size">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,18 +48,21 @@ function Header() {
                 <span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/galeria">Galeria</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/endereco">Endereços</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/agendamento">Agendamentos</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">Login</Link>
-            </li>
+            {links.map((link) => (
+              <li className="nav-item">
+                <Link className="nav-link" to={link.to}>{link.title}</Link>
+              </li>
+            ))}
+            {isDoctor && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/auth/lista-agendamento">Listar Agendamentos</Link>
+              </li>
+            )}
+            {auth && (
+              <li className="nav-item">
+                <button type="button" className="fadeIn fourth" onClick={() => handleLogout()}>Sair</button>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

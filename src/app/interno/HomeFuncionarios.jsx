@@ -1,5 +1,9 @@
 function HomeFuncionarios() {
-  return <div>HomeFuncionarios</div>;
+  return (
+    <div>
+      <div />
+    </div>
+  );
 }
 
 export default HomeFuncionarios;

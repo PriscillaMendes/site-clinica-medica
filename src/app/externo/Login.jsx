@@ -39,7 +39,7 @@ const Login = () => {
     // mock da autenticação
     console.log(form);
     window.localStorage.setItem('token', 'meu_token_autenticado');
-    navigate('/home-funcionario');
+    navigate('/auth/home-funcionario');
   }
 
   return (

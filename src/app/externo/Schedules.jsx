@@ -9,7 +9,22 @@ const initialForm = {
 };
 
 const role = [
+  'Angiologista',
   'Cardiologista',
+  'Cirurgião',
+  'Clínico geral',
+  'Dermatologista',
+  'Endocrinologista',
+  'Geriatra',
+  'Ginecologista',
+  'Infectologista',
+  'Oftalmologista',
+  'Oncologista',
+  'Ortopedista',
+  'Pediatra',
+  'Psiquiatra',
+  'Reumatologista',
+  'Urologista',
 ];
 
 function Form(props) {
@@ -43,13 +58,25 @@ function Form(props) {
   return (
     <form onSubmit={(event) => handleFormSubmit(event)} className="row">
       <div>
-        <select value={doctorRole} onChange={(event) => handleSelectDoctorRole(event)} id="role" className="fadeIn second" name="role">
-          <option key={0} value="">Selecione um tipo de medico</option>
+        <select
+          value={doctorRole}
+          onChange={(event) => handleSelectDoctorRole(event)}
+          id="role"
+          className="fadeIn second"
+          name="role"
+        >
+          <option key={0} value="">Especialidade</option>
           {role.map((r) => (
             <option key={r} value={r}>{r}</option>
           ))}
         </select>
-        <select value={form.doctor} onChange={(event) => handleFormChange(event)} id="doctor" className="fadeIn second" name="doctor">
+        <select
+          value={form.doctor}
+          onChange={(event) => handleFormChange(event)}
+          id="doctor"
+          className="fadeIn second"
+          name="doctor"
+        >
           <option key={0} value="">X</option>
           {doctors.map((doctor) => (
             <option
@@ -60,8 +87,24 @@ function Form(props) {
             </option>
           ))}
         </select>
-        <input value={form.date} onChange={(event) => handleFormChange(event)} type="date" id="date" className="fadeIn third" name="date" placeholder="Data da Consuluta" />
-        <input value={form.schedule} onChange={(event) => handleFormChange(event)} type="time" id="schedule" className="fadeIn third" name="schedule" placeholder="Horário disponível" />
+        <input
+          value={form.date}
+          onChange={(event) => handleFormChange(event)}
+          type="date"
+          id="date"
+          className="fadeIn third"
+          name="date"
+          placeholder="Data da Consuluta"
+        />
+        <input
+          value={form.schedule}
+          onChange={(event) => handleFormChange(event)}
+          type="time"
+          id="schedule"
+          className="fadeIn third"
+          name="schedule"
+          placeholder="Horário disponível"
+        />
       </div>
       <div id="formFooter">
         <input type="submit" className="fadeIn fourth" value="Cadastrar" />
