@@ -34,13 +34,13 @@
 
 .card_home {
   margin: 30px auto;
+  min-width: 300px;
   width: 300px;
   height: 330px;
-  border-radius: 40px;
-  box-shadow: 2px 2px 5px 3px rgba(107, 104, 104, 0.25), -5px -5px 30px 7px rgba(173, 171, 171, 0.22);
+  border-radius: 35px;
+  box-shadow: 1px 1px 2px 1px rgba(107, 104, 104, 0.25), -2px -2px 30px 7px rgba(173, 171, 171, 0.22);
   cursor: pointer;
   transition: 0.4s;
-  /*background: linear-gradient(to right, rgb(89, 94, 134) 0%, rgb(27, 115, 209) 100%);*/
 }
 
 .card_home .card_image {
@@ -652,4 +652,25 @@ input[type=text]:placeholder {
 
 * {
   box-sizing: border-box;
+}
+
+
+.div-diagonal {
+    position: absolute;
+    margin-top: -5%;
+    width: 100%;
+    height: 80vh;
+    left: 0;
+    background: #343a40!important;
+
+}
+
+
+.bk-image{
+  height: 7vh;
+  background: url("../images/back-build.png") no-repeat center;
+}
+
+.card-min{
+  min-width: 300px;
 }

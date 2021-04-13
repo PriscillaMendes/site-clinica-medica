@@ -56,63 +56,65 @@ function Form(props) {
   }, [doctorRole]);
 
   return (
-    <form onSubmit={(event) => handleFormSubmit(event)} className="row">
-      <div>
-        <select
-          value={doctorRole}
-          onChange={(event) => handleSelectDoctorRole(event)}
-          id="role"
-          className="fadeIn second"
-          name="role"
-        >
-          <option key={0} value="">Especialidade</option>
-          {role.map((r) => (
-            <option key={r} value={r}>{r}</option>
-          ))}
-        </select>
-        <select
-          value={form.doctor}
-          onChange={(event) => handleFormChange(event)}
-          id="doctor"
-          className="fadeIn second"
-          name="doctor"
-        >
-          <option key={0} value="">X</option>
-          {doctors.map((doctor) => (
-            <option
-              key={doctor.id}
-              value={doctor.name}
-            >
-              {doctor.name}
-            </option>
-          ))}
-        </select>
-        <input
-          value={form.date}
-          onChange={(event) => handleFormChange(event)}
-          type="date"
-          id="date"
-          className="fadeIn third"
-          name="date"
-          placeholder="Data da Consuluta"
-        />
-        <input
-          value={form.schedule}
-          onChange={(event) => handleFormChange(event)}
-          type="time"
-          id="schedule"
-          className="fadeIn third"
-          name="schedule"
-          placeholder="Horário disponível"
-        />
-      </div>
-      <div id="formFooter">
-        <input type="submit" className="fadeIn fourth" value="Cadastrar" />
-      </div>
-      <pre>
-        <code>{JSON.stringify(form, null, '')}</code>
-      </pre>
-    </form>
+    <div className="row d-flex justify-content-center ">
+      <form onSubmit={(event) => handleFormSubmit(event)} className="col-9 form-group">
+        <div className="">
+          <select
+            value={doctorRole}
+            onChange={(event) => handleSelectDoctorRole(event)}
+            id="role"
+            className="fadeIn second form-group form-control"
+            name="role"
+          >
+            <option key={0} value="">Especialidade</option>
+            {role.map((r) => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+          </select>
+          <select
+            value={form.doctor}
+            onChange={(event) => handleFormChange(event)}
+            id="doctor"
+            className="fadeIn second form-group form-control"
+            name="doctor"
+          >
+            <option key={0} value="">X</option>
+            {doctors.map((doctor) => (
+              <option
+                key={doctor.id}
+                value={doctor.name}
+              >
+                {doctor.name}
+              </option>
+            ))}
+          </select>
+          <input
+            value={form.date}
+            onChange={(event) => handleFormChange(event)}
+            type="date"
+            id="date"
+            className="fadeIn third form-group form-control"
+            name="date"
+            placeholder="Data da Consuluta"
+          />
+          <input
+            value={form.schedule}
+            onChange={(event) => handleFormChange(event)}
+            type="time"
+            id="schedule"
+            className="fadeIn third form-group form-control"
+            name="schedule"
+            placeholder="Horário disponível"
+          />
+        </div>
+        <div className="justify-content-end">
+          <input type="submit" className="fadeIn fourth " value="Cadastrar" />
+        </div>
+        <pre>
+          <code>{JSON.stringify(form, null, '')}</code>
+        </pre>
+      </form>
+    </div>
   );
 }
 

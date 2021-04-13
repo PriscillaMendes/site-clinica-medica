@@ -12,11 +12,11 @@ function Galery() {
     <div className="row col-12 body-size">
       <div className="col-4">
         <h1 className="text-light">Galeria</h1>
-        <img className="col mt-5" alt="" src={backImg} />
+        <img className="col mt-5 card-min" alt="" src={backImg} />
       </div>
       <br />
       <div className="col align-self-center ">
-        <div className="col-8 ">
+        <div className="col-8 card-min">
           <div id="carousel1" className="carousel slide " data-ride="carousel">
             <div className="carousel-inner ">
               <div className="carousel-item active ">

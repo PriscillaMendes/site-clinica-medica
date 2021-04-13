@@ -2,11 +2,16 @@ import * as React from 'react';
 import FormContainer from '../common/components/FormContainer';
 
 const initialForm = {
+  name: '',
+  email: '',
+  phone: '',
   cep: '',
   street: '',
   neighborhood: '',
   city: '',
   state: '',
+  height: '',
+  bloodtype: '',
 };
 
 function Form(props) {
@@ -26,6 +31,33 @@ function Form(props) {
   return (
     <form onSubmit={(event) => handleFormSubmit(event, form)} className="row">
       <div>
+        <input
+          value={form.name}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="cep"
+          className="fadeIn second"
+          name="name"
+          placeholder="Nome"
+        />
+        <input
+          value={form.email}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="email"
+          className="fadeIn second"
+          name="email"
+          placeholder="e-mail"
+        />
+        <input
+          value={form.phone}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="phone"
+          className="fadeIn second"
+          name="phone"
+          placeholder="Telefone"
+        />
         <input
           value={form.cep}
           onChange={(event) => handleFormChange(event)}
@@ -71,8 +103,26 @@ function Form(props) {
           name="state"
           placeholder="Estado"
         />
+        <input
+          value={form.height}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="height"
+          className="fadeIn third"
+          name="height"
+          placeholder="Altura"
+        />
+        <input
+          value={form.bloodtype}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="bloodtype"
+          className="fadeIn third"
+          name="bloodtype"
+          placeholder="Tipo sanguíneo"
+        />
       </div>
-      <div id="formFooter">
+      <div className="row col-12 d-flex justify-content-center ">
         <input type="submit" className="fadeIn fourth" value="Cadastrar" />
       </div>
       <code>{JSON.stringify(form, null, '')}</code>

@@ -25,7 +25,7 @@ function Form(props) {
   }
 
   return (
-    <form onSubmit={(event) => handleFormSubmit(event, form)} className="row">
+    <form onSubmit={(event) => handleFormSubmit(event, form)} className="row ">
       <div>
         <input
           value={form.cep}
@@ -73,8 +73,8 @@ function Form(props) {
           placeholder="Estado"
         />
       </div>
-      <div id="formFooter">
-        <input type="submit" className="fadeIn fourth" value="Cadastrar" />
+      <div className="row col-12 d-flex justify-content-center ">
+        <input type="submit" className="row d-flex justify-content-center  fadeIn fourth" value="Cadastrar" />
       </div>
       <code>{JSON.stringify(form, null, '')}</code>
     </form>

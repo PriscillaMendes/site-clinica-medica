@@ -60,7 +60,7 @@ function Header() {
             )}
             {auth && (
               <li className="nav-item">
-                <button type="button" className="fadeIn fourth" onClick={() => handleLogout()}>Sair</button>
+                <button type="button" className="ml-5 btn btn-outline-light fadeIn fourth" onClick={() => handleLogout()}>Sair</button>
               </li>
             )}
           </ul>
