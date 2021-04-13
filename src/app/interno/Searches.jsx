@@ -9,11 +9,11 @@ const links = [
 
 function Listings() {
   return (
-    <div className="">
+    <div className="container pt-5">
       <ul>
         {links.map((link) => (
-          <li>
-            <Link to={link.to}>{link.title}</Link>
+          <li className="row p-2">
+            <Link className="btn btn-outline-info col-2" to={link.to}>{link.title}</Link>
           </li>
         ))}
       </ul>
