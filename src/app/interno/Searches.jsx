@@ -9,7 +9,7 @@ const links = [
 
 function Listings() {
   return (
-    <div>
+    <div className="">
       <ul>
         {links.map((link) => (
           <li>

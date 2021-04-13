@@ -150,6 +150,15 @@ function Form(props) {
           )
           : <div> </div>}
         <input
+          value={form.salary}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="salary"
+          className="fadeIn third"
+          name="salary"
+          placeholder="Salário"
+        />
+        <input
           value={form.password}
           onChange={(event) => handleFormChange(event)}
           type="text"
@@ -182,7 +191,8 @@ function EmployeeSignup() {
       cargo: form.position,
       especialidade: form.type,
       crm: form.crm,
-      senha: form.senha,
+      senha: form.password,
+      salario: form.salary,
     };
     console.log(body);
 

@@ -7,7 +7,7 @@
 - [ ] 1.3 Página Novo Endereço Que isso?
 - [ ] Colocar itens selecionado na navbar coloridinho
 - [ ] justificar e centralizar os textos da home
-- [ ] colocar imagem no centro na home
+- [x] colocar imagem no centro na home
 
 A parte da aplicação de acesso restrito deverá conter telas/páginas para:
 - [ ] Home funcionários
@@ -27,3 +27,5 @@ Integração
 - Login 
 
 Estilização
+
+

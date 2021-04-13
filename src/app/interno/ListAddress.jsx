@@ -69,9 +69,9 @@ function AdressHeader(props) {
 
 function ListAddress() {
   return (
-    <div className="row">
-      <div id="formContent" className="container">
-        <table className="table">
+    <div className="p-5 row">
+      <div id="" className="container">
+        <table className="table table-bordered bg-white rounded shadow">
           <thead>
             <AdressHeader columns={adressColumns} />
           </thead>
