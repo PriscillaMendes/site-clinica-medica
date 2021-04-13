@@ -53,9 +53,9 @@ function Header() {
                 <Link className="nav-link" to={link.to}>{link.title}</Link>
               </li>
             ))}
-            {isDoctor && (
+            {auth && isDoctor && (
               <li className="nav-item">
-                <Link className="nav-link" to="/auth/lista-agendamento">Listar Agendamentos</Link>
+                <Link className="nav-link" to="/auth/consulta/listar-agendamentos">Listar Agendamentos</Link>
               </li>
             )}
             {auth && (

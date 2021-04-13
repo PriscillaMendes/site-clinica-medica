@@ -14,6 +14,8 @@ import Schedules from './externo/Schedules';
 import Navigation from './common/layout/Navigation';
 import ListAddress from './interno/ListAddress';
 import ListPatient from './interno/ListPatient';
+import ListDoctorSchedules from './interno/ListDoctorSchedules';
+import ListPatientSchedules from './interno/ListPatientSchedules';
 import ListEmployee from './interno/ListEmployee';
 import PrivateRoute from './common/components/PrivateRoute';
 import PatientSignup from './interno/PatientSignup';
@@ -35,6 +37,8 @@ function App() {
                 <Route path="funcionarios"><ListEmployee /></Route>
                 <Route path="pacientes"><ListPatient /></Route>
                 <Route path="enderecos"><ListAddress /></Route>
+                <Route path="agendamentosCliente"><ListPatientSchedules /></Route>
+                <Route path="listar-agendamentos"><ListDoctorSchedules /></Route>
               </Route>
             </Route>
             <Route path="/"><Home /></Route>
