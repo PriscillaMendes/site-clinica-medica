@@ -4,6 +4,8 @@ import {
   Outlet,
   Route,
 } from 'react-router-dom';
+import { useEffect } from 'react';
+import Axios from 'axios';
 import Home from './externo/Home';
 import Login from './externo/Login';
 import Galery from './externo/Galery';
@@ -23,20 +25,33 @@ import EmployeeSignup from './interno/EmployeeSignup';
 import HomeFuncionarios from './interno/HomeFuncionarios';
 import './App.css';
 
+const URI = 'http://localhost:5000';
+  
+
 function App() {
+  function getPatient() {
+     (Axios
+      .get('${URI}/todos')
+      .then((res) => res.data)
+    );
+  }
+  useEffect(getPatient, []);
+  useEffect( () => {
+    window.alert('Vaiiiiii ' );
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route element={<Navigation />}>
-            <Route path="auth" element={<PrivateRoute><Outlet /></PrivateRoute>}>
+            <Route path="auth" element={<PrivateRoute><Outlet /></PrivateRoute>}> 
               <Route path="cadastro-paciente"><PatientSignup /></Route>
               <Route path="home-funcionario"><HomeFuncionarios /></Route>
               <Route path="cadastro-funcionario"><EmployeeSignup /></Route>
               <Route path="consulta" element={<Listings />}>
                 <Route path="funcionarios"><ListEmployee /></Route>
                 <Route path="pacientes"><ListPatient /></Route>
-                <Route path="enderecos"><ListAddress /></Route>
+                <Route path="enderecos"><ListAddress /></Route> 
                 <Route path="agendamentosCliente"><ListPatientSchedules /></Route>
                 <Route path="listar-agendamentos"><ListDoctorSchedules /></Route>
               </Route>
@@ -47,7 +62,7 @@ function App() {
             <Route path="galeria"><Galery /></Route>
             <Route path="agendamento"><Schedules /></Route>
             <Route path="endereco"><Address /></Route>
-          </Route>
+          </Route> 
         </Routes>
       </BrowserRouter>
     </div>
