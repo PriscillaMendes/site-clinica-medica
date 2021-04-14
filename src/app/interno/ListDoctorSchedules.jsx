@@ -3,7 +3,7 @@ const doctorMock = [
     id: 0,
     nome: 'Mike',
     email: 'mike@sa.com',
-    telefone: '32324575',
+    telefone: '1875432324575',
     data: '20-10-2020',
     hora: '10:10',
   },
@@ -11,7 +11,7 @@ const doctorMock = [
     id: 1,
     nome: 'Suley',
     email: 'suley@sa.com',
-    telefone: '32324575',
+    telefone: '9864232324575',
     data: '20-10-2020',
     hora: '10:10',
   },
@@ -19,7 +19,7 @@ const doctorMock = [
     id: 2,
     nome: 'Buh',
     email: 'biuosfh@sa.com',
-    telefone: '32324575',
+    telefone: '9658732324575',
     data: '20-10-2020',
     hora: '10:10',
   },
@@ -66,7 +66,23 @@ function DoctorHeader(props) {
     </tr>
   );
 }
-
+function phoneMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '($1)')
+    .replace(/(\d{4})(\d)/, '$1-$2')
+    .replace(/(\d{5})(\d)/, '$1');
+}
+function hourMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d{2})/, '$1:$2');
+}
+function dataMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d{2})(\d{4})/, '$1-$2-$3');
+}
 function ListDoctorSchedules() {
   return (
     <div className="p-5">
@@ -83,9 +99,9 @@ function ListDoctorSchedules() {
                   index={index + 1}
                   name={value.nome}
                   email={value.email}
-                  phone={value.telefone}
-                  data={value.data}
-                  hour={value.hora}
+                  phone={phoneMask(value.telefone)}
+                  data={dataMask(value.data)}
+                  hour={hourMask(value.hora)}
                 />
               ))}
             </tbody>

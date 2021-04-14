@@ -17,7 +17,6 @@ const initialForm = {
   type: '',
   crm: '',
 };
-
 function Form(props) {
   const { onSubmit } = props;
   const [form, setForm] = React.useState(initialForm);
@@ -31,7 +30,6 @@ function Form(props) {
     event.preventDefault();
     onSubmit(newForm);
   }
-
   return (
     <form onSubmit={(event) => handleFormSubmit(event, form)} className="row">
       <div>

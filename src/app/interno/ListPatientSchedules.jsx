@@ -3,7 +3,7 @@ const employeeMock = [
     id: 0,
     nome: 'Mike',
     email: 'mike@sa.com',
-    telefone: '32324575',
+    telefone: '13232324575',
     especialidade: 'assutador',
     medico: 'Suley',
     data: '20-10-2020',
@@ -13,7 +13,7 @@ const employeeMock = [
     id: 1,
     nome: 'Suley',
     email: 'suley@sa.com',
-    telefone: '32324575',
+    telefone: '3232445575',
     especialidade: 'fofinho',
     medico: 'Suley',
     data: '20-10-2020',
@@ -23,7 +23,7 @@ const employeeMock = [
     id: 2,
     nome: 'Buh',
     email: 'biuosfh@sa.com',
-    telefone: '32324575',
+    telefone: '3982324575',
     especialidade: 'uh',
     medico: 'Suley',
     data: '20-10-2020',
@@ -79,6 +79,23 @@ function PatientHeader(props) {
   );
 }
 
+function phoneMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '($1)')
+    .replace(/(\d{4})(\d)/, '$1-$2')
+    .replace(/(\d{5})(\d)/, '$1');
+}
+function hourMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d{2})/, '$1:$2');
+}
+function dataMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d{2})(\d{4})/, '$1-$2-$3');
+}
 function ListPatientSchedules() {
   return (
     <div className="p-5">
@@ -95,11 +112,11 @@ function ListPatientSchedules() {
                   index={index + 1}
                   name={value.nome}
                   email={value.email}
-                  phone={value.telefone}
+                  phone={phoneMask(value.telefone)}
                   type={value.especialidade}
                   doctor={value.medico}
-                  data={value.data}
-                  hour={value.hora}
+                  data={dataMask(value.data)}
+                  hour={hourMask(value.hora)}
                 />
               ))}
             </tbody>

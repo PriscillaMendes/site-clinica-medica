@@ -85,6 +85,20 @@ function EmployeeItem(props) {
     </tr>
   );
 }
+function phoneMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '($1)')
+    .replace(/(\d{4})(\d)/, '$1-$2')
+    .replace(/(\d{5})(\d)/, '$1');
+}
+
+function cepMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '$1.')
+    .replace(/(\d{3})(\d)/, '$1-$2');
+}
 
 function EmployeeHeader(props) {
   const { columns } = props;
@@ -113,8 +127,8 @@ function ListPatient() {
                   index={index + 1}
                   name={value.nome}
                   email={value.email}
-                  telefone={value.telefone}
-                  cep={value.cep}
+                  telefone={phoneMask(value.telefone)}
+                  cep={cepMask(value.cep)}
                   city={value.cidade}
                   state={value.estado}
                   street={value.logradouro}
