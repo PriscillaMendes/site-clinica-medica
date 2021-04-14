@@ -12,10 +12,10 @@ const initialForm = {
   state: '',
   height: '',
   bloodtype: '',
+  weight: '',
 };
 
-function Form(props) {
-  const { onSubmit } = props;
+function Form() {
   const [form, setForm] = React.useState(initialForm);
 
   function handleFormChange(event) {
@@ -23,9 +23,33 @@ function Form(props) {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleFormSubmit(event, newForm) {
+  async function handleFormSubmit(event, newForm) {
     event.preventDefault();
-    onSubmit(newForm);
+    const body = JSON.stringify({
+      ...(newForm.name && { nome: newForm.name }),
+      ...(newForm.email && { email: newForm.email }),
+      ...(newForm.phone && { telefone: newForm.phone }),
+      ...(newForm.cep && { cep: newForm.cep }),
+      ...(newForm.street && { logradouro: newForm.street }),
+      ...(newForm.neighborhood && { bairro: newForm.neighborhood }),
+      ...(newForm.city && { cidade: newForm.city }),
+      ...(newForm.state && { estado: newForm.state }),
+      ...(newForm.height && { altura: newForm.height }),
+      ...(newForm.bloodtype && { tiposanguineo: newForm.bloodtype }),
+      ...(newForm.weight && { peso: newForm.weight }),
+      password: 'senhavazia',
+      role: 'paciente',
+    });
+
+    const newPatient = await fetch('http://localhost:3000/user', {
+      method: 'POST',
+      body,
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    }).then((response) => response.json());
+
+    if (newPatient) {
+      setForm(initialForm);
+    }
   }
 
   return (
@@ -58,7 +82,7 @@ function Form(props) {
           name="phone"
           placeholder="Telefone"
         />
-        <input
+        {/* <input
           value={form.cep}
           onChange={(event) => handleFormChange(event)}
           type="text"
@@ -66,8 +90,8 @@ function Form(props) {
           className="fadeIn second"
           name="cep"
           placeholder="CEP"
-        />
-        <input
+        /> */}
+        {/* <input
           value={form.street}
           onChange={(event) => handleFormChange(event)}
           type="text"
@@ -102,6 +126,15 @@ function Form(props) {
           className="fadeIn third"
           name="state"
           placeholder="Estado"
+        /> */}
+        <input
+          value={form.weight}
+          onChange={(event) => handleFormChange(event)}
+          type="text"
+          id="weight"
+          className="fadeIn third"
+          name="weight"
+          placeholder="Peso"
         />
         <input
           value={form.height}
@@ -130,26 +163,12 @@ function Form(props) {
 }
 
 function PatientSignup() {
-  function handleSubmit(form) {
-    const body = {
-      cep: form.cep,
-      logradouro: form.street,
-      bairro: form.neighborhood,
-      cidade: form.city,
-      estado: form.state,
-    };
-    console.log(body);
-
-    // @TODO Integração
-    alert('foi');
-  }
-
   return (
     <FormContainer
       title="Cadastrar Paciente"
       srcImg=""
     >
-      <Form onSubmit={(form) => handleSubmit(form)} />
+      <Form />
     </FormContainer>
   );
 }

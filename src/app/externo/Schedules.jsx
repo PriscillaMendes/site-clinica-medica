@@ -9,22 +9,22 @@ const initialForm = {
 };
 
 const role = [
-  'Angiologista',
-  'Cardiologista',
-  'Cirurgião',
-  'Clínico geral',
-  'Dermatologista',
-  'Endocrinologista',
-  'Geriatra',
-  'Ginecologista',
-  'Infectologista',
+  // 'Angiologista',
+  // 'Cardiologista',
+  // 'Cirurgião',
+  // 'Clínico geral',
+  // 'Dermatologista',
+  // 'Endocrinologista',
+  // 'Geriatra',
+  // 'Ginecologista',
+  // 'Infectologista',
   'Oftalmologista',
-  'Oncologista',
-  'Ortopedista',
-  'Pediatra',
-  'Psiquiatra',
-  'Reumatologista',
-  'Urologista',
+  // 'Oncologista',
+  // 'Ortopedista',
+  // 'Pediatra',
+  // 'Psiquiatra',
+  // 'Reumatologista',
+  // 'Urologista',
 ];
 
 function Form(props) {
@@ -49,10 +49,15 @@ function Form(props) {
   }
 
   React.useEffect(() => {
-    // @TODO Integração
-    setDoctors([
-      { name: 'Teste Nome Medico', id: 1 },
-    ]);
+    async function getDoctors() {
+      const doctorsResponse = await fetch('http://localhost:3000/users')
+        .then((response) => response.json());
+      if (doctorsResponse) {
+        setDoctors(doctorsResponse);
+      }
+    }
+
+    getDoctors();
   }, [doctorRole]);
 
   return (
@@ -78,7 +83,7 @@ function Form(props) {
             className="fadeIn second form-group form-control"
             name="doctor"
           >
-            <option key={0} value="">X</option>
+            <option key={0} value="">Selecione o médico</option>
             {doctors.map((doctor) => (
               <option
                 key={doctor.id}
@@ -110,25 +115,26 @@ function Form(props) {
         <div className="justify-content-end">
           <input type="submit" className="fadeIn fourth " value="Cadastrar" />
         </div>
-        <pre>
-          <code>{JSON.stringify(form, null, '')}</code>
-        </pre>
       </form>
     </div>
   );
 }
 
 function Schedules() {
-  function handleSubmit(form) {
-    const body = {
-      data: form.date,
-      horario: form.schedule,
-      paciente: form, // ?
-      medico: form.doctor,
-    };
-    console.log(body);
+  async function handleSubmit(form) {
+    const body = JSON.stringify({
+      ...(form.date && { data: form.date }),
+      ...(form.doctor && { medico: form.doctor }),
+      ...(form.schedule && { horario: form.schedule }),
+      paciente: '',
+    });
 
-    alert('foi');
+    const newEmployee = await fetch('http://localhost:3000/agenda', {
+      method: 'POST',
+      body,
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    }).then((response) => response.json());
+    console.log(newEmployee);
   }
 
   return (

@@ -26,7 +26,7 @@ const addressMock = [
 ];
 
 const adressColumns = [
-  'Id',
+  // 'Id',
   'Cidade',
   'Cep',
   'Estado',
@@ -36,7 +36,7 @@ const adressColumns = [
 
 function AdressItem(props) {
   const {
-    index,
+    // index,
     cep,
     city,
     state,
@@ -46,7 +46,7 @@ function AdressItem(props) {
 
   return (
     <tr>
-      <th scope="row">{index}</th>
+      {/* <th scope="row">{index}</th> */}
       <td>{city}</td>
       <td>{cep}</td>
       <td>{state}</td>

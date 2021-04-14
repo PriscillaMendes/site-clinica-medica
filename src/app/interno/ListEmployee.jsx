@@ -1,61 +1,15 @@
-const employeeMock = [
-  {
-    id: 0,
-    nome: 'Mike',
-    email: 'mike@sa.com',
-    telefone: '32324575',
-    cep: '86360000',
-    cidade: 'Belo Horizonte',
-    estado: 'Minas Gerais',
-    bairro: 'Bandeirantes',
-    logradouro: 'Av. Pampulha',
-    cargo: 'medico',
-    salario: '2000,00',
-    especialidade: 'Clinico',
-    crm: 'crm-2020',
-  },
-  {
-    id: 1,
-    nome: 'Suley',
-    email: 'suley@sa.com',
-    telefone: '32324575',
-    cep: '86360000',
-    cidade: 'Belo Horizonte',
-    estado: 'Minas Gerais',
-    bairro: 'Bandeirantes',
-    logradouro: 'Av. Pampulha',
-    cargo: 'medico',
-    salario: '2000,00',
-    especialidade: 'Clinico',
-    crm: 'crm-2020',
-  },
-  {
-    id: 2,
-    nome: 'Buh',
-    email: 'biuosfh@sa.com',
-    telefone: '32324575',
-    cep: '86360000',
-    cidade: 'Belo Horizonte',
-    estado: 'Minas Gerais',
-    bairro: 'Bandeirantes',
-    logradouro: 'Av. Pampulha',
-    cargo: 'medico',
-    salario: '2000,00',
-    especialidade: 'monstrooes',
-    crm: 'crm-2020',
-  },
-];
+import * as React from 'react';
 
 const employeeColumns = [
-  'Id',
+  // 'Id',
   'Nome',
   'email',
   'Telefone',
-  'Cidade',
-  'Cep',
-  'Estado',
-  'Logradouro',
-  'Bairro',
+  // 'Cidade',
+  // 'Cep',
+  // 'Estado',
+  // 'Logradouro',
+  // 'Bairro',
   'Cargo',
   'Salário',
   'Especialidade',
@@ -64,15 +18,15 @@ const employeeColumns = [
 
 function EmployeeItem(props) {
   const {
-    index,
+    // index,
     name,
     email,
     telefone,
-    cep,
-    city,
-    state,
-    street,
-    neighborhood,
+    // cep,
+    // city,
+    // state,
+    // street,
+    // neighborhood,
     position,
     salary,
     type,
@@ -81,15 +35,15 @@ function EmployeeItem(props) {
 
   return (
     <tr className="p-3">
-      <th scope="row" className="p-3">{index}</th>
+      {/* <th scope="row" className="p-3">{index}</th> */}
       <td className="p-2">{name}</td>
       <td className="p-2">{email}</td>
       <td className="p-2">{telefone}</td>
-      <td className="p-2">{city}</td>
-      <td className="p-2">{cep}</td>
-      <td className="p-2">{state}</td>
-      <td className="p-2">{street}</td>
-      <td className="p-2">{neighborhood}</td>
+      {/* <td className="p-2">{city}</td> */}
+      {/* <td className="p-2">{cep}</td> */}
+      {/* <td className="p-2">{state}</td> */}
+      {/* <td className="p-2">{street}</td> */}
+      {/* <td className="p-2">{neighborhood}</td> */}
       <td className="p-2">{position}</td>
       <td className="p-2">{salary}</td>
       <td className="p-2">{type}</td>
@@ -110,6 +64,23 @@ function EmployeeHeader(props) {
 }
 
 function ListEmployee() {
+  const [employees, setEmployees] = React.useState([]);
+
+  React.useEffect(() => {
+    async function getEmployees() {
+      const responseEmployees = await fetch('http://localhost:3000/user/role/funcionario').then((res) => res.json());
+      if (responseEmployees) {
+        setEmployees((prev) => [...prev, ...responseEmployees]);
+      }
+      const responseDoctor = await fetch('http://localhost:3000/user/role/medico').then((res) => res.json());
+      if (responseDoctor) {
+        setEmployees((prev) => [...prev, ...responseDoctor]);
+      }
+    }
+
+    getEmployees();
+  }, []);
+
   return (
     <div className="p-5">
       <div className="row d-flex justify-content-center">
@@ -119,22 +90,22 @@ function ListEmployee() {
               <EmployeeHeader columns={employeeColumns} />
             </thead>
             <tbody className="">
-              {employeeMock.map((value, index) => (
+              {employees.map((value, index) => (
                 <EmployeeItem
                   key={value.id}
                   index={index + 1}
                   name={value.nome}
                   email={value.email}
                   telefone={value.telefone}
-                  cep={value.cep}
-                  city={value.cidade}
-                  state={value.estado}
-                  street={value.logradouro}
-                  neighborhood={value.bairro}
-                  position={value.cargo}
+                  // cep={value.cep}
+                  // city={value.cidade}
+                  // state={value.estado}
+                  // street={value.logradouro}
+                  // neighborhood={value.bairro}
+                  position={value.role}
                   salary={value.salario}
                   type={value.especialidade}
-                  crm={value.crm}
+                  crm={value.CRM}
                 />
               ))}
             </tbody>

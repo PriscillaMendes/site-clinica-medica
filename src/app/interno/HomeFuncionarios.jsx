@@ -12,7 +12,7 @@ function HomeFuncionarios() {
           <div className="col-2">
             <div className="row pt-5 card-body col-3 text-white bg-dark h-40 card-min">
               <h5 className="">A CLÍNICA MONSTRO </h5>
-              é especializada nos melhores tratamentos de todas as áreas para todos os tipos de
+              Especializada nos melhores tratamentos de todas as áreas para todos os tipos de
               monstros
             </div>
             <div className="row p-4"> </div>

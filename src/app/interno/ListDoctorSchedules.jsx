@@ -26,7 +26,7 @@ const doctorMock = [
 ];
 
 const doctorColumns = [
-  'Id',
+  // 'Id',
   'Nome do Cliente',
   'email',
   'Telefone',
@@ -36,7 +36,7 @@ const doctorColumns = [
 
 function DoctorItem(props) {
   const {
-    index,
+    // index,
     name,
     email,
     phone,
@@ -46,7 +46,7 @@ function DoctorItem(props) {
 
   return (
     <tr className="p-3">
-      <th scope="row" className="p-3">{index}</th>
+      {/* <th scope="row" className="p-3">{index}</th> */}
       <td className="p-2">{name}</td>
       <td className="p-2">{email}</td>
       <td className="p-2">{phone}</td>

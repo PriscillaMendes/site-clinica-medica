@@ -26,7 +26,7 @@ const LoginForm = (props) => {
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <input type="text" value={form.login} onChange={(event) => handleFormChange(event)} id="login" className="fadeIn-login second-login" name="login" placeholder="Login" />
-      <input type="text" value={form.password} onChange={(event) => handleFormChange(event)} id="password" className="fadeIn-login third-login" name="password" placeholder="Senha" />
+      <input type="password" value={form.password} onChange={(event) => handleFormChange(event)} id="password" className="fadeIn-login third-login" name="password" placeholder="Senha" />
       <input type="submit" className="fadeIn fourth" value="Entrar" />
     </form>
   );
