@@ -41,7 +41,7 @@ const employeeColumns = [
   'Especialidade',
   'Medico',
   'data',
-  'hora',
+  'horario',
 ];
 
 function PatientItem(props) {

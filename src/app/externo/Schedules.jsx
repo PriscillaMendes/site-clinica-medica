@@ -6,9 +6,11 @@ const initialForm = {
   doctor: '',
   date: '',
   schedule: '',
+  email: '',
 };
 
 const role = [
+  'Oftalmologista',
   // 'Angiologista',
   // 'Cardiologista',
   // 'Cirurgião',
@@ -18,13 +20,28 @@ const role = [
   // 'Geriatra',
   // 'Ginecologista',
   // 'Infectologista',
-  'Oftalmologista',
   // 'Oncologista',
   // 'Ortopedista',
   // 'Pediatra',
   // 'Psiquiatra',
   // 'Reumatologista',
   // 'Urologista',
+];
+
+const medicoMock = [
+  {
+    id: 712812,
+    name: 'Luciana Soares Monteiro',
+
+  },
+  {
+    id: 7128,
+    name: 'tested',
+  },
+  {
+    id: 8717888,
+    name: 'Maria',
+  },
 ];
 
 function Form(props) {
@@ -46,23 +63,27 @@ function Form(props) {
   function handleFormSubmit(event, newForm) {
     event.preventDefault();
     onSubmit(newForm);
+    setForm(initialForm);
   }
 
   React.useEffect(() => {
-    async function getDoctors() {
-      const doctorsResponse = await fetch('http://localhost:3000/users')
-        .then((response) => response.json());
-      if (doctorsResponse) {
-        setDoctors(doctorsResponse);
-      }
+    console.log(doctorRole);
+    if (doctorRole === role[0]) {
+      setDoctors(medicoMock);
     }
+    // async function getDoctors() {
+    //   const doctorsResponse = await fetch('http://localhost:3000/users')
+    //     .then((response) => response.json());
+    //   if (doctorsResponse) {
+    //   }
+    // }
 
-    getDoctors();
+    // getDoctors();
   }, [doctorRole]);
 
   return (
     <div className="row d-flex justify-content-center ">
-      <form onSubmit={(event) => handleFormSubmit(event)} className="col-9 form-group">
+      <form onSubmit={(event) => handleFormSubmit(event, form)} className="col-9 form-group">
         <div className="">
           <select
             value={doctorRole}
@@ -103,6 +124,15 @@ function Form(props) {
             placeholder="Data da Consuluta"
           />
           <input
+            value={form.email}
+            onChange={(event) => handleFormChange(event)}
+            type="email"
+            id="email"
+            className="fadeIn third form-group form-control"
+            name="email"
+            placeholder="Email do paciente"
+          />
+          <input
             value={form.schedule}
             onChange={(event) => handleFormChange(event)}
             type="time"
@@ -122,9 +152,14 @@ function Form(props) {
 
 function Schedules() {
   async function handleSubmit(form) {
+    console.log(form);
+    const doctors = await fetch('http://localhost:3000/user/role/medico').then((res) => res.json());
+
+    const selectedDoctor = doctors.find((doctor) => doctor.name === form.medico);
+
     const body = JSON.stringify({
       ...(form.date && { data: form.date }),
-      ...(form.doctor && { medico: form.doctor }),
+      ...(form.doctor && { medico: selectedDoctor?.id }),
       ...(form.schedule && { horario: form.schedule }),
       paciente: '',
     });
@@ -134,6 +169,7 @@ function Schedules() {
       body,
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     }).then((response) => response.json());
+
     console.log(newEmployee);
   }
 

@@ -1,8 +1,6 @@
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 
-// @TODO Verificar se o usuário logado é um medico
-const isDoctor = true;
 const links = [
   { title: 'Funcionários Cadastrados', to: 'funcionarios' },
   { title: 'Pacientes Cadastrados', to: 'pacientes' },
@@ -12,6 +10,9 @@ const links = [
 ];
 
 function Listings() {
+  const role = window.localStorage.getItem('role');
+  const isDoctor = role === 'medico';
+
   return (
     <div className="container pt-5">
       <div className="row d-flex justify-content-center">

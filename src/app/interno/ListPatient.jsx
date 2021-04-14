@@ -6,6 +6,7 @@ const employeeColumns = [
   'email',
   'Telefone',
   'Altura',
+  'Peso',
   'Tipo Sanguíneo',
 ];
 
@@ -15,6 +16,7 @@ function EmployeeItem(props) {
     email,
     telefone,
     height,
+    weight,
     bloodType,
   } = props;
 
@@ -24,6 +26,7 @@ function EmployeeItem(props) {
       <td className="p-2">{email}</td>
       <td className="p-2">{telefone}</td>
       <td className="p-2">{height}</td>
+      <td className="p-2">{weight}</td>
       <td className="p-2">{bloodType}</td>
     </tr>
   );
@@ -76,6 +79,7 @@ function ListPatient() {
                   street={value.logradouro}
                   neighborhood={value.bairro}
                   height={value.altura}
+                  weight={value.peso}
                   bloodType={value.tiposanguineo}
                 />
               ))}

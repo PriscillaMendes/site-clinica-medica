@@ -52,7 +52,7 @@ function Form() {
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     }).then((response) => response.json());
 
-    if (newEmployee) {
+    if (!newEmployee?.error && newEmployee) {
       setForm(initialForm);
     }
   }

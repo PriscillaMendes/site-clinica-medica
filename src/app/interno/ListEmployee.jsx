@@ -46,8 +46,8 @@ function EmployeeItem(props) {
       {/* <td className="p-2">{neighborhood}</td> */}
       <td className="p-2">{position}</td>
       <td className="p-2">{salary}</td>
-      <td className="p-2">{type}</td>
-      <td className="p-2">{crm}</td>
+      <td className="p-2">{type || '-'}</td>
+      <td className="p-2">{crm || '-'}</td>
     </tr>
   );
 }
@@ -75,6 +75,10 @@ function ListEmployee() {
       const responseDoctor = await fetch('http://localhost:3000/user/role/medico').then((res) => res.json());
       if (responseDoctor) {
         setEmployees((prev) => [...prev, ...responseDoctor]);
+      }
+      const responseAdmin = await fetch('http://localhost:3000/user/role/admin').then((res) => res.json());
+      if (responseAdmin) {
+        setEmployees((prev) => [...prev, ...responseAdmin]);
       }
     }
 

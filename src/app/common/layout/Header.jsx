@@ -24,11 +24,12 @@ function Header() {
 
   function handleLogout() {
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('role');
     navigate('/login');
   }
 
-  // @TODO Verificar se o usuário logado é um medico
-  const isDoctor = true;
+  const role = window.localStorage.getItem('role');
+  const isDoctor = role === 'medico';
   const links = auth ? internalLinks : externalLinks;
 
   return (

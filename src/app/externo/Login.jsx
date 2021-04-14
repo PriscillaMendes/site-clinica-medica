@@ -35,11 +35,23 @@ const LoginForm = (props) => {
 const Login = () => {
   const navigate = useNavigate();
 
-  function handleLoginUser(form) {
-    // mock da autenticação
-    console.log(form);
-    window.localStorage.setItem('token', 'meu_token_autenticado');
-    navigate('/auth/home-funcionario');
+  async function handleLoginUser(form) {
+    const body = JSON.stringify({
+      email: form.login,
+      password: form.password,
+    });
+
+    const auth = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      body,
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    }).then((response) => response.json());
+
+    if (!auth.erro) {
+      window.localStorage.setItem('token', auth.id);
+      window.localStorage.setItem('role', auth.role);
+      navigate('/auth/home-funcionario');
+    }
   }
 
   return (

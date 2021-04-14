@@ -1,27 +1,19 @@
 const doctorMock = [
   {
     id: 0,
-    nome: 'Mike',
-    email: 'mike@sa.com',
-    telefone: '32324575',
-    data: '20-10-2020',
-    hora: '10:10',
+    nome: 'Pedro Garcia',
+    email: 'pedrogarcia@gmail.com',
+    telefone: '(31) 99654-2135',
+    data: '20-04-2021',
+    hora: '10:00',
   },
   {
     id: 1,
-    nome: 'Suley',
-    email: 'suley@sa.com',
-    telefone: '32324575',
-    data: '20-10-2020',
-    hora: '10:10',
-  },
-  {
-    id: 2,
-    nome: 'Buh',
-    email: 'biuosfh@sa.com',
-    telefone: '32324575',
-    data: '20-10-2020',
-    hora: '10:10',
+    nome: 'Beatriz Oliveira',
+    email: 'beatriz28@hotmail.com',
+    telefone: '(31) 99124-8091',
+    data: '25-04-2021',
+    hora: '15:00',
   },
 ];
 
@@ -31,7 +23,7 @@ const doctorColumns = [
   'email',
   'Telefone',
   'data',
-  'hora',
+  'horario',
 ];
 
 function DoctorItem(props) {
