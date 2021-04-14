@@ -67,6 +67,12 @@ function AdressHeader(props) {
   );
 }
 
+function cepMask(value) {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '$1.')
+    .replace(/(\d{3})(\d)/, '$1-$2');
+}
 function ListAddress() {
   return (
     <div className="p-5 row">
@@ -80,7 +86,7 @@ function ListAddress() {
               <AdressItem
                 key={address.id}
                 index={index + 1}
-                cep={address.cep}
+                cep={cepMask(address.cep)}
                 city={address.cidade}
                 state={address.estado}
                 street={address.logradouro}
