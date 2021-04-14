@@ -171,7 +171,6 @@ function Form(props) {
       <div className="row col-12 d-flex justify-content-center">
         <input type="submit" className="fadeIn fourth" value="Cadastrar" />
       </div>
-      <code>{JSON.stringify(form, null, '')}</code>
     </form>
   );
 }

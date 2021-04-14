@@ -76,21 +76,29 @@ function Form(props) {
       <div className="row col-12 d-flex justify-content-center ">
         <input type="submit" className="row d-flex justify-content-center  fadeIn fourth" value="Cadastrar" />
       </div>
-      <code>{JSON.stringify(form, null, '')}</code>
     </form>
   );
 }
 
 function Address() {
-  function handleSubmit(form) {
-    const body = {
+  async function handleSubmit(form) {
+    const body = JSON.stringify({
       cep: form.cep,
       logradouro: form.street,
       bairro: form.neighborhood,
       cidade: form.city,
       estado: form.state,
-    };
-    console.log(body);
+    });
+
+    const newAddress = await fetch('http://localhost:3000/posts', {
+      method: 'POST',
+      body,
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    }).then((response) => response.json());
+
+    console.log(newAddress);
+    // const response = await api.post('/')
+    // console.log(body);
 
     // @TODO Integração
     alert('foi');

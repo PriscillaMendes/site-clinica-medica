@@ -10,7 +10,7 @@ export default function Home() {
         </div>
         <div className="card-body col-3 text-white bg-dark h-75 card-min">
           <h5 className="">A CLÍNICA MONSTRO </h5>
-          é especializada nos melhores tratamentos de todas as áreas para todos os tipos de monstros
+          Especializada nos melhores tratamentos de todas as áreas para todos os tipos de monstros
         </div>
         {/* <div className="col" /> */}
       </div>
